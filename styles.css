@@ -1,0 +1,30 @@
+.controls-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 100px;
+  grid-template-rows: 30px 100px;
+}
+
+.input-collection-label {
+  grid-row: 1 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.input-collection {
+  grid-row: 2 / span 1;
+  grid-column: 1 / span 1;
+}
+
+.input-function-label {
+  grid-row: 1 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.input-function {
+  grid-row: 2 / span 1;
+  grid-column: 2 / span 1;
+}
+
+.button-start-wrapper {
+  grid-row: 1 / span 2;
+  grid-column: 3 / span 1;
+}
