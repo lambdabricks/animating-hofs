@@ -28,3 +28,16 @@
   grid-row: 1 / span 2;
   grid-column: 3 / span 1;
 }
+
+.input-collection-element {
+  border: 1px solid black;
+  border-right: none;
+  float: left;
+  height: 20px;
+  text-align: center;
+  width: 20px;
+}
+
+.input-collection-element:last-of-type {
+  border-right: 1px solid black;
+}
