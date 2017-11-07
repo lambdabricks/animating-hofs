@@ -5,17 +5,17 @@ animateButton.onclick = function(event) {
 
   timeline.to(
     "#input-collection",
-    1.5,
+    1.2,
     {
-      y: 30,
+      y: 59,
       scale: 0.7
     }
   );
   timeline.to(
     "#input-collection",
-    1.5,
+    1.2,
     {
-      y: 60,
+      y: 100,
       scale: 1
     }
   );

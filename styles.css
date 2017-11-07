@@ -7,12 +7,20 @@ div {
 /* Layout */
 .container {
   margin: 0 auto;
-  width: 800px;
+  width: 640px;
 }
 
-.controls-container {
+.inputs-container {
   display: flex;
   justify-content: space-around;
+}
+
+.collection-wrapper {
+  flex: 0 0 110px;
+}
+
+.function-wrapper {
+  flex: 0 0 110px;
 }
 
 .input-collection-element {
@@ -28,13 +36,12 @@ div {
   border-right: 1px solid rgba(0, 0, 0, 0);
 }
 
-
-/* Main brick */
-.animation {
-  width: 80%;
-  margin: 0 auto;
+.start-button-wrapper {
+  text-align: center;
 }
 
+
+/* Main brick */
 .mainbrick-color {
   background-color: #bbb;
 }
