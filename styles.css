@@ -1,3 +1,10 @@
+/* General overwrites */
+div {
+  margin: 0;
+}
+
+
+/* Layout */
 .container {
   margin: 0 auto;
   width: 800px;
@@ -5,6 +12,7 @@
 
 .controls-container {
   display: flex;
+  justify-content: space-around;
 }
 
 .input-collection-element {
@@ -22,8 +30,9 @@
 
 
 /* Main brick */
-.mainbrick {
-  margin: 12px;
+.animation {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .mainbrick-color {
@@ -32,19 +41,28 @@
 
 .mainbrick-body {
   display: inline-block;
-  height: 100px;
-  padding: 0 27px;
-  width: 300px;
+  height: 200px;
+  width: 100%;
 }
 
 .mainbrick-inputslots, .mainbrick-outputslots {
-  height: 25px;
+  height: 40px;
+}
+
+.mainbrick-inputslots > .mainbrick-slot:nth-child(1) {
+  margin-left: calc((100% - (40px * 2)) / 4);
+}
+
+.mainbrick-inputslots > .mainbrick-slot:nth-child(2) {
+  margin-left: calc((100% - (40px * 2)) / 2);
+}
+
+.mainbrick-outputslots > .mainbrick-slot {
+  margin-left: calc((100% - (40px * 1)) / 2);
 }
 
 .mainbrick-slot {
   display: inline-block;
-  height: 25px;
-  margin-left: 37px;
-  vertical-align: top;
-  width: 25px;
+  height: 40px;
+  width: 40px;
 }
