@@ -1,3 +1,8 @@
+.container {
+  margin: 0 auto;
+  width: 800px;
+}
+
 .controls-container {
   display: flex;
 }
