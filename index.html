@@ -25,12 +25,14 @@
           Collection
         </label>
 
-        <div class="input-collection">
-          <div class="input-collection-element">1</div>
-          <div class="input-collection-element">2</div>
-          <div class="input-collection-element">3</div>
-          <div class="input-collection-element">4</div>
-          <div class="input-collection-element">5</div>
+        <div class="input-collection-wrapper">
+          <div id="input-collection" class="input-collection">
+            <div class="input-collection-element">1</div>
+            <div class="input-collection-element">2</div>
+            <div class="input-collection-element">3</div>
+            <div class="input-collection-element">4</div>
+            <div class="input-collection-element">5</div>
+          </div>
         </div>
 
         <label class="input-function-label" for="input-function">
@@ -42,7 +44,9 @@
         </div>
 
         <div class="button-start-wrapper">
-          <button type="button" name="animate">Animate</button>
+          <button type="button" name="animate" id="animate">
+            Animate
+          </button>
         </div>
 
       </div>
@@ -52,8 +56,7 @@
 
     </div>
 
-    <script type="text/javascript">
-
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

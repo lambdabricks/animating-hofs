@@ -9,7 +9,7 @@
   grid-column: 1 / span 1;
 }
 
-.input-collection {
+.input-collection-wrapper {
   grid-row: 2 / span 1;
   grid-column: 1 / span 1;
 }
@@ -40,4 +40,8 @@
 
 .input-collection-element:last-of-type {
   border-right: 1px solid black;
+}
+
+.input-collection {
+  display: inline-block;
 }
