@@ -14,3 +14,32 @@
 .input-collection-element:last-of-type {
   border-right: 1px solid black;
 }
+
+
+/* Main brick */
+.mainbrick {
+  margin: 12px;
+}
+
+.mainbrick-color {
+  background-color: #bbb;
+}
+
+.mainbrick-body {
+  display: inline-block;
+  height: 100px;
+  padding: 0 27px;
+  width: 300px;
+}
+
+.mainbrick-inputslots, .mainbrick-outputslots {
+  height: 25px;
+}
+
+.mainbrick-slot {
+  display: inline-block;
+  height: 25px;
+  margin-left: 37px;
+  vertical-align: top;
+  width: 25px;
+}
