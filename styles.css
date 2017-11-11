@@ -23,6 +23,11 @@ div {
   flex: 0 0 110px;
 }
 
+.input-collection {
+  position: relative;
+  z-index: 100;
+}
+
 .input-collection-element {
   border: 1px solid rgba(0, 0, 0, 0);
   border-right: none;
