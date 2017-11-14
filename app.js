@@ -13,7 +13,8 @@ animateButton.addEventListener('click', function(event) {
   master
     .add(collection_enters())
     .add(position_input_function())
-    .add(map_collection());
+    .add(map_collection())
+    .add(output_collection_result());
 
 });
 
@@ -70,6 +71,20 @@ const map_collection = function() {
       timeline.to(input_brick, 0.4, { x: '+=21px'});
     }
   }
+
+  return timeline;
+}
+
+const output_collection_result = function() {
+  const timeline = new TimelineLite();
+  const input_collection = document.getElementById('input-collection');
+  const output_slot = document.getElementById('output-slot');
+
+  timeline
+    .to(input_collection, 1.2, { y: '+=100', scale: 0.6, ease: Sine.easeIn }, 'collection_exits')
+    .to(input_collection, 0.6, { y: '+=10', scale: 1 })
+    .to(output_slot, 0.4, { scale: 1.3 }, 'collection_exits+=0.25')
+    .to(output_slot, 0.4, { scale: 1 }, 'collection_exits+=1.5')
 
   return timeline;
 }
