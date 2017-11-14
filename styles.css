@@ -22,7 +22,7 @@ div {
 
 .input-collection {
   position: relative;
-  z-index: 100;
+  z-index: 50;
 }
 
 .input-collection-element {
@@ -36,6 +36,11 @@ div {
 
 .input-collection-element:last-of-type {
   border-right: 1px solid rgba(0, 0, 0, 0);
+}
+
+.input-function {
+  position: relative;
+  z-index: 100;
 }
 
 .start-button-wrapper {
