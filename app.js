@@ -5,7 +5,8 @@ animateButton.addEventListener('click', function(event) {
 
   master
     .add(collection_enters())
-    .add(position_input_function());
+    .add(position_input_function())
+    .add(map_collection());
 
 });
 
@@ -34,7 +35,26 @@ const position_input_function = function() {
     .to(input_function, 1.2, { y: 190, scale: 1 })
     .to(slot2, 0.4, { scale: 1.3 }, 'function_enters+=0.25')
     .to(slot2, 0.4, { scale: 1 }, 'function_enters+=1.5')
-    .to(input_function, 1.2, { x: -213 })
+    .to(input_function, 1.2, { x: -214 })
 
   return timeline;
 };
+
+const map_collection = function() {
+  const timeline = new TimelineLite();
+  const collection_elements = document.getElementsByClassName('input-collection-element');
+  const input_function = document.getElementById('input-function');
+  const total_elements = collection_elements.length;
+
+  for(i = 0; i < total_elements; i++) {
+    const element = collection_elements[i];
+    timeline.to(element, 1.2, { y: 110 })
+
+    // No need to move the input function after the last element
+    if(i != total_elements - 1) {
+      timeline.to(input_function, 0.4, { x: '+=21px'});
+    }
+  }
+
+  return timeline;
+}
