@@ -78,3 +78,33 @@ div {
   height: 40px;
   width: 40px;
 }
+
+
+/* Brick */
+.brick-body {
+  align-content: space-around;
+  display: flex;
+  font-size: 12px;
+  justify-content: center;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.brick-color {
+  background-color: #74b1e8;
+  box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.7);
+}
+
+.brick-output {
+  position: relative;
+}
+
+.brick-slot {
+  height: 15px;
+  width: 15px;
+}
+
+.brick-slots {
+  display: flex;
+  justify-content: space-around;
+}
