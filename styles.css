@@ -13,14 +13,11 @@ div {
 .inputs-container {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 
-.collection-wrapper {
-  flex: 0 0 110px;
-}
-
-.function-wrapper {
-  flex: 0 0 110px;
+.inputs-container .input-label {
+  margin-bottom: 8px;
 }
 
 .input-collection {
@@ -47,34 +44,16 @@ div {
 
 
 /* Main brick */
-.mainbrick-color {
+.mainbrick-filled {
   background-color: #bbb;
 }
 
 .mainbrick-body {
-  display: inline-block;
   height: 200px;
   width: 100%;
 }
 
-.mainbrick-inputslots, .mainbrick-outputslots {
-  height: 40px;
-}
-
-.mainbrick-inputslots > .mainbrick-slot:nth-child(1) {
-  margin-left: calc((100% - (40px * 2)) / 4);
-}
-
-.mainbrick-inputslots > .mainbrick-slot:nth-child(2) {
-  margin-left: calc((100% - (40px * 2)) / 2);
-}
-
-.mainbrick-outputslots > .mainbrick-slot {
-  margin-left: calc((100% - (40px * 1)) / 2);
-}
-
 .mainbrick-slot {
-  display: inline-block;
   height: 40px;
   width: 40px;
 }
@@ -90,7 +69,7 @@ div {
   position: relative;
 }
 
-.brick-color {
+.brick-filled {
   background-color: #74b1e8;
   box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.7);
 }
