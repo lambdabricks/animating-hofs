@@ -1,3 +1,10 @@
+let data = {
+  input_function: function(element) {
+    return element + 1;
+  },
+  input_collection: [1, 2, 3, 4, 5]
+};
+
 let animateButton = document.getElementById('animate');
 
 animateButton.addEventListener('click', function(event) {
@@ -43,16 +50,24 @@ const position_input_function = function() {
 const map_collection = function() {
   const timeline = new TimelineLite();
   const collection_elements = document.getElementsByClassName('input-collection-element');
-  const input_function = document.getElementById('input-function');
+  const input_brick = document.getElementById('input-function');
   const total_elements = collection_elements.length;
 
   for(i = 0; i < total_elements; i++) {
     const element = collection_elements[i];
-    timeline.to(element, 1.2, { y: 110 })
+    const new_value = data.input_function(data.input_collection[i]);
 
-    // No need to move the input function after the last element
+    timeline
+      .to(
+        element,
+        0.6,
+        { y: "+=55", onComplete: function() { element.innerText = new_value; }}
+      )
+      .to(element, 0.6, { y: "+=55" });
+
+    // No need to move the input brick after the last element
     if(i != total_elements - 1) {
-      timeline.to(input_function, 0.4, { x: '+=21px'});
+      timeline.to(input_brick, 0.4, { x: '+=21px'});
     }
   }
 
