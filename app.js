@@ -10,7 +10,7 @@ animateButton.addEventListener('click', function(event) {
 });
 
 const collection_enters = function() {
-  let timeline = new TimelineLite();
+  const timeline = new TimelineLite();
   const input_collection = document.getElementById('input-collection');
   const slot1 = document.getElementById('input-slot1');
 
@@ -25,7 +25,7 @@ const collection_enters = function() {
 };
 
 const position_input_function = function() {
-  let timeline = new TimelineLite();
+  const timeline = new TimelineLite();
   const input_function = document.getElementById('input-function');
   const slot2 = document.getElementById('input-slot2');
 
