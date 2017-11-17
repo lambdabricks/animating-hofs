@@ -20,15 +20,19 @@ animateButton.addEventListener('click', function(event) {
 
 const collection_enters = function() {
   const timeline = new TimelineLite();
+  const main_brick = document.getElementById('mainbrick');
   const input_collection = document.getElementById('input-collection');
   const slot1 = document.getElementById('input-slot1');
+
+  const left_offset = input_collection.offsetLeft - main_brick.offsetLeft;
+  const centered = main_brick_half_width(input_collection, main_brick) - left_offset;
 
   timeline
     .to(input_collection, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'collection_enters')
     .to(input_collection, 0.8, { y: 155, scale: 1 })
     .to(slot1, 0.4, { scale: 1.3 }, 'collection_enters+=0.25')
     .to(slot1, 0.4, { scale: 1 }, 'collection_enters+=1.5')
-    .to(input_collection, 0.8, { x: 147 });
+    .to(input_collection, 0.8, { x: centered });
 
   return timeline;
 };
@@ -36,14 +40,20 @@ const collection_enters = function() {
 const position_input_function = function() {
   const timeline = new TimelineLite();
   const input_function = document.getElementById('input-function');
+  const input_slot = input_function.getElementsByClassName('brick-slot')[0];
   const slot2 = document.getElementById('input-slot2');
+
+  const main_brick = document.getElementById('mainbrick');
+  const input_collection = document.getElementById('input-collection');
+  const left_offset = input_function.offsetLeft + input_slot.offsetLeft -
+    (main_brick_half_width(input_collection, main_brick) + main_brick.offsetLeft);
 
   timeline
     .to(input_function, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'function_enters')
     .to(input_function, 1.2, { y: 190, scale: 1 })
     .to(slot2, 0.4, { scale: 1.3 }, 'function_enters+=0.25')
     .to(slot2, 0.4, { scale: 1 }, 'function_enters+=1.5')
-    .to(input_function, 1.2, { x: -214 })
+    .to(input_function, 1.2, { x: '-=' + left_offset });
 
   return timeline;
 };
@@ -87,4 +97,8 @@ const output_collection_result = function() {
     .to(output_slot, 0.4, { scale: 1 }, 'collection_exits+=1.4')
 
   return timeline;
+}
+
+const main_brick_half_width = function(input_collection, main_brick) {
+  return ((main_brick.offsetWidth - input_collection.offsetWidth) / 2);
 }
