@@ -78,7 +78,7 @@ const map_collection = function() {
 
     // No need to move the input brick after the last element
     if(i != total_elements - 1) {
-      timeline.to(input_brick, 0.4, { x: '+=21px'});
+      timeline.to(input_brick, 0.4, { x: '+=' + element.offsetWidth });
     }
   }
 
