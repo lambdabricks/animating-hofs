@@ -83,8 +83,8 @@ const output_collection_result = function() {
   timeline
     .to(input_collection, 1.2, { y: '+=100', scale: 0.6, ease: Sine.easeIn }, 'collection_exits')
     .to(input_collection, 0.6, { y: '+=10', scale: 1 })
-    .to(output_slot, 0.4, { scale: 1.3 }, 'collection_exits+=0.25')
-    .to(output_slot, 0.4, { scale: 1 }, 'collection_exits+=1.5')
+    .to(output_slot, 0.4, { scale: 1.3 }, 'collection_exits+=0.5')
+    .to(output_slot, 0.4, { scale: 1 }, 'collection_exits+=1.4')
 
   return timeline;
 }
