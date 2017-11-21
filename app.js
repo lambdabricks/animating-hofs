@@ -22,7 +22,7 @@ const collection_enters = function() {
   const timeline = new TimelineLite();
   const main_brick = document.getElementById('mainbrick');
   const input_collection = document.getElementById('input-collection');
-  const slot1 = document.getElementById('input-slot1');
+  const slot1 = document.getElementById('mb-slot-collection');
 
   const left_offset = input_collection.offsetLeft - main_brick.offsetLeft;
   const centered = main_brick_half_width(input_collection, main_brick) - left_offset;
@@ -41,7 +41,7 @@ const position_input_function = function() {
   const timeline = new TimelineLite();
   const input_function = document.getElementById('input-function');
   const input_slot = input_function.getElementsByClassName('brick-slot')[0];
-  const slot2 = document.getElementById('input-slot2');
+  const slot2 = document.getElementById('mb-slot-function');
 
   const main_brick = document.getElementById('mainbrick');
   const input_collection = document.getElementById('input-collection');
@@ -62,7 +62,8 @@ const position_input_function = function() {
 
 const map_collection = function() {
   const timeline = new TimelineLite();
-  const collection_elements = document.getElementsByClassName('input-collection-element');
+  const input_collection = document.getElementById('input-collection');
+  const collection_elements = input_collection.getElementsByClassName('input-collection-element');
   const input_brick = document.getElementById('input-function');
   const total_elements = collection_elements.length;
 

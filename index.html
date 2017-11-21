@@ -13,13 +13,19 @@
 
   <body>
 
-    <div class="container">
+    <div class="container map">
 
       <div class="navbar-container">
         <h1>Main HOF's !! (Higher Order Functions)</h1>
       </div>
 
       <div class="controls-container">
+
+        <div class="start-button-wrapper">
+          <button type="button" name="animate" id="animate">
+            Animate
+          </button>
+        </div>
 
         <div class="inputs-container">
           <div class="collection-wrapper">
@@ -31,6 +37,14 @@
               <div class="input-collection-element">3</div>
               <div class="input-collection-element">4</div>
               <div class="input-collection-element">5</div>
+            </div>
+          </div>
+
+          <div class="accumulator-wrapper">
+            <div class="input-label">Collection</div>
+
+            <div class="input-collection">
+              <div class="input-collection-element">1</div>
             </div>
           </div>
 
@@ -56,20 +70,15 @@
 
         </div>
 
-        <div class="start-button-wrapper">
-          <button type="button" name="animate" id="animate">
-            Animate
-          </button>
-        </div>
-
       </div>
 
       <div class="animation">
         <div class="mainbrick" id="mainbrick">
 
           <div class="brick-slots">
-            <div class="mainbrick-filled mainbrick-slot" id="input-slot1"></div>
-            <div class="mainbrick-filled mainbrick-slot" id="input-slot2"></div>
+            <div class="mainbrick-filled mainbrick-slot" id="mb-slot-collection"></div>
+            <div class="mainbrick-filled mainbrick-slot" id="mb-slot-accumulator"></div>
+            <div class="mainbrick-filled mainbrick-slot" id="mb-slot-function"></div>
           </div>
 
           <div class="mainbrick-filled mainbrick-body">

@@ -10,9 +10,14 @@ div {
   width: 500px;
 }
 
+.container.map #mb-slot-accumulator, .container.map .accumulator-wrapper {
+  display: none;
+}
+
 .inputs-container {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 22px;
   text-align: center;
 }
 
@@ -20,7 +25,7 @@ div {
   margin-bottom: 8px;
 }
 
-.collection-wrapper, .function-wrapper {
+.inputs-container > div {
   flex-basis: 50%;
 }
 
@@ -35,7 +40,7 @@ div {
   border-right: none;
   height: 20px;
   text-align: center;
-  width: 20px;
+  min-width: 20px;
 }
 
 .input-collection-element:last-of-type {
