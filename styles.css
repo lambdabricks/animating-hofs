@@ -20,7 +20,12 @@ div {
   margin-bottom: 8px;
 }
 
+.collection-wrapper, .function-wrapper {
+  flex-basis: 50%;
+}
+
 .input-collection {
+  display: inline-flex;
   position: relative;
   z-index: 50;
 }
@@ -28,7 +33,6 @@ div {
 .input-collection-element {
   border: 1px solid rgba(0, 0, 0, 0);
   border-right: none;
-  float: left;
   height: 20px;
   text-align: center;
   width: 20px;
@@ -39,7 +43,9 @@ div {
 }
 
 .input-function {
+  margin: 0 auto;
   position: relative;
+  width: 90px;
   z-index: 100;
 }
 
