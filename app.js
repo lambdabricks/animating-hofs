@@ -45,7 +45,9 @@ const position_input_function = function() {
 
   const main_brick = document.getElementById('mainbrick');
   const input_collection = document.getElementById('input-collection');
+  const collection_element = input_collection.getElementsByClassName('input-collection-element')[0];
   const left_offset = input_function.offsetLeft + input_slot.offsetLeft -
+    ((collection_element.offsetWidth - input_slot.offsetWidth) / 2) -
     (main_brick_half_width(input_collection, main_brick) + main_brick.offsetLeft);
 
   timeline
