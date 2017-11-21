@@ -1,8 +1,12 @@
 let data = {
-  input_function: function(element) {
+  input_collection: [1, 2, 3, 4, 5],
+  map_function: function(element) {
     return element + 1;
   },
-  input_collection: [1, 2, 3, 4, 5]
+  reduce_function: function(accumulator, element) {
+    return accumulator + element;
+  },
+  selected_function: 'map'
 };
 
 let animateButton = document.getElementById('animate');
@@ -10,12 +14,15 @@ let animateButton = document.getElementById('animate');
 animateButton.addEventListener('click', function(event) {
   let master = new TimelineLite();
 
-  master
-    .add(collection_enters())
-    .add(position_input_function())
-    .add(map_collection())
-    .add(output_collection_result());
+  if(data.selected_function == 'map') {
+    master
+      .add(collection_enters())
+      .add(position_input_function())
+      .add(map_collection())
+      .add(output_collection_result());
+  } else if(data.selected_function == 'reduce') {
 
+  }
 });
 
 const collection_enters = function() {
@@ -69,7 +76,7 @@ const map_collection = function() {
 
   for(i = 0; i < total_elements; i++) {
     const element = collection_elements[i];
-    const new_value = data.input_function(data.input_collection[i]);
+    const new_value = data.map_function(data.input_collection[i]);
 
     timeline
       .to(

@@ -10,7 +10,7 @@ div {
   width: 500px;
 }
 
-.container.map #mb-slot-accumulator, .container.map .accumulator-wrapper {
+.container.map .reduce-only {
   display: none;
 }
 
@@ -55,6 +55,7 @@ div {
 }
 
 .start-button-wrapper {
+  margin-bottom: 15px;
   text-align: center;
 }
 

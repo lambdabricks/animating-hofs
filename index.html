@@ -13,7 +13,7 @@
 
   <body>
 
-    <div class="container map">
+    <div class="container">
 
       <div class="navbar-container">
         <h1>Main HOF's !! (Higher Order Functions)</h1>
@@ -40,7 +40,7 @@
             </div>
           </div>
 
-          <div class="accumulator-wrapper">
+          <div class="accumulator-wrapper reduce-only">
             <div class="input-label">Collection</div>
 
             <div class="input-collection">
@@ -56,6 +56,7 @@
               <div class="brick">
                 <div class="brick-slots">
                   <div class="brick-filled brick-slot"></div>
+                  <div class="brick-filled brick-slot reduce-only"></div>
                 </div>
 
                 <div class="brick-filled brick-body">add_one</div>
@@ -77,7 +78,10 @@
 
           <div class="brick-slots">
             <div class="mainbrick-filled mainbrick-slot" id="mb-slot-collection"></div>
-            <div class="mainbrick-filled mainbrick-slot" id="mb-slot-accumulator"></div>
+            <div
+              class="mainbrick-filled mainbrick-slot reduce-only"
+              id="mb-slot-accumulator"
+            ></div>
             <div class="mainbrick-filled mainbrick-slot" id="mb-slot-function"></div>
           </div>
 
