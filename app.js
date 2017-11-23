@@ -6,18 +6,21 @@ let data = {
   reduce_function: function(accumulator, element) {
     return accumulator + element;
   },
-  selected_function: 'map'
+  selected_function: 'reduce'
 };
 
 // html elements
 const input_collection = document.getElementById('input-collection');
 const collection_elements = input_collection.getElementsByClassName('input-collection-element');
 const collection_element = collection_elements[0];
+const input_accumulator = document.getElementById('input-accumulator');
 const input_function = document.getElementById('input-function');
 const input_function_slot = input_function.getElementsByClassName('brick-slot')[0];
+const input_function_slot2 = input_function.getElementsByClassName('brick-slot')[1];
 
 const main_brick = document.getElementById('mainbrick');
 const slot_collection = document.getElementById('mb-slot-collection');
+const slot_accumulator = document.getElementById('mb-slot-accumulator');
 const slot_function = document.getElementById('mb-slot-function');
 const output_slot = document.getElementById('mb-output-slot');
 
@@ -35,10 +38,11 @@ animateButton.addEventListener('click', function(event) {
       .add(output_collection_result());
   } else if(data.selected_function == 'reduce') {
     master
-      .add(position_collection(position_for_reduce_hof()))
+      .add(position_collection(collection_position_for_reduce()))
+      .add(position_accumulator(acumulator_position()))
       .add(position_input_function())
-      .add(map_collection())
-      .add(output_collection_result());
+      // .add(map_collection())
+      // .add(output_collection_result());
   }
 });
 
@@ -52,6 +56,20 @@ const position_collection = function(final_x_position) {
     .to(slot_collection, 0.4, { scale: 1 }, 'collection_enters+=1.5')
     .to(input_collection, 0.8, { x: final_x_position })
     .to(input_collection, 0.4, { y: 155 });
+
+  return timeline;
+};
+
+const position_accumulator = function(final_x_position) {
+  const timeline = new TimelineLite();
+
+  timeline
+    .to(input_accumulator, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'accumulator_enters')
+    .to(input_accumulator, 0.8, { y: 140, scale: 1 })
+    .to(slot_accumulator, 0.4, { scale: 1.3 }, 'accumulator_enters+=0.25')
+    .to(slot_accumulator, 0.4, { scale: 1 }, 'accumulator_enters+=1.5')
+    .to(input_accumulator, 0.8, { x: final_x_position })
+    .to(input_accumulator, 0.4, { y: 155 });
 
   return timeline;
 };
@@ -117,6 +135,24 @@ const collection_position_for_map = function() {
   return centered;
 };
 
+const collection_position_for_reduce = function() {
+  const centered = collection_position_for_map();
+
+  return centered + space_between_brick_slots();
+};
+
+const acumulator_position = function() {
+  const left_offset = input_accumulator.offsetLeft - main_brick.offsetLeft;
+  const centered = main_brick_half_width(input_collection, main_brick) -
+    space_between_brick_slots();
+
+  return centered - left_offset;
+};
+
 const main_brick_half_width = function(input_collection, main_brick) {
   return ((main_brick.offsetWidth - input_collection.offsetWidth) / 2);
 }
+
+const space_between_brick_slots = function() {
+  return ((input_function_slot2.offsetLeft - input_function_slot.offsetWidth) / 2);
+};
