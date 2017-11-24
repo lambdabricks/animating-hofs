@@ -1,4 +1,5 @@
 let data = {
+  accumulator: 0,
   input_collection: [1, 2, 3, 4, 5],
   map_function: function(element) {
     return element + 1;
@@ -41,7 +42,7 @@ animateButton.addEventListener('click', function(event) {
       .add(position_collection(collection_position_for_reduce()))
       .add(position_accumulator(acumulator_position()))
       .add(position_input_function(function_position_for_reduce()))
-      // .add(map_collection())
+      .add(reduce_collection())
       // .add(output_collection_result());
   }
 });
@@ -112,6 +113,31 @@ const map_collection = function() {
   return timeline;
 }
 
+const reduce_collection = function() {
+  const timeline = new TimelineLite();
+  const total_elements = collection_elements.length;
+
+  const i = 0;
+  const element = collection_elements[i];
+  data.accumulator = data.reduce_function(data.accumulator, data.input_collection[i]);
+
+  timeline
+    .to(input_accumulator, 0.4, { y: "+=55"}, "reduce_collection" + i)
+    .to(input_accumulator, 0.4, { x: "+=" + space_between_brick_slots() })
+    .to(
+      element,
+      0.8,
+      { y: "+=55", onComplete: function() { input_accumulator.innerText = data.accumulator; }},
+      "reduce_collection" + i)
+    .to(input_accumulator, 0.8, { y: "+=55" });
+
+  if(i != total_elements - 1) {
+    timeline.to(input_function, 0.4, { x: '+=' + element.offsetWidth });
+  }
+
+  return timeline;
+};
+
 const output_collection_result = function() {
   const timeline = new TimelineLite();
 
@@ -162,7 +188,7 @@ const main_brick_half_width = function(input_collection, main_brick) {
 }
 
 const space_between_brick_slots = function() {
-  return ((input_function_slot2.offsetLeft - input_function_slot.offsetWidth) / 2);
+  return ((input_function_slot2.offsetLeft - input_function_slot.offsetLeft) / 2);
 };
 
 const diff_between_collection_and_slot_sizes = function() {
