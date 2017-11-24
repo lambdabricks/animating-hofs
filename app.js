@@ -116,23 +116,35 @@ const map_collection = function() {
 const reduce_collection = function() {
   const timeline = new TimelineLite();
   const total_elements = collection_elements.length;
+  const loop_callback = function(i, element) {
+    return function() {
+      data.accumulator = data.reduce_function(data.accumulator, data.input_collection[i]);
+      input_accumulator.innerText = data.accumulator;
+      element.classList += ' invisible';
+    };
+  };
 
-  const i = 0;
-  const element = collection_elements[i];
-  data.accumulator = data.reduce_function(data.accumulator, data.input_collection[i]);
+  for(i = 0; i < total_elements; i++) {
+    const element = collection_elements[i];
 
-  timeline
-    .to(input_accumulator, 0.4, { y: "+=55"}, "reduce_collection" + i)
-    .to(input_accumulator, 0.4, { x: "+=" + space_between_brick_slots() })
-    .to(
-      element,
-      0.8,
-      { y: "+=55", onComplete: function() { input_accumulator.innerText = data.accumulator; }},
-      "reduce_collection" + i)
-    .to(input_accumulator, 0.8, { y: "+=55" });
+    timeline
+      .to(input_accumulator, 0.4, { y: "+=55"}, "reduce_collection" + i)
+      .to(input_accumulator, 0.4, { x: "+=" + space_between_brick_slots() })
+      .to(
+        element,
+        0.4,
+        { y: "+=55", onComplete: loop_callback(i, element) },
+        "reduce_collection" + i)
+      .to(input_accumulator, 0.8, { y: "+=55" });
 
-  if(i != total_elements - 1) {
-    timeline.to(input_function, 0.4, { x: '+=' + element.offsetWidth });
+    if(i != total_elements - 1) {
+      timeline.to(input_function, 0.4, { x: '+=' + element.offsetWidth });
+
+      timeline
+        .to(input_accumulator, 0.3, { x: "-=60"})
+        .to(input_accumulator, 0.6, { y: "-=110"})
+        .to(input_accumulator, 0.3, { x: "+=59"})
+    }
   }
 
   return timeline;
