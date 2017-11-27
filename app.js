@@ -36,14 +36,15 @@ animateButton.addEventListener('click', function(event) {
       .add(position_collection(collection_position_for_map()))
       .add(position_input_function(function_position_for_map()))
       .add(map_collection())
-      .add(output_collection_result());
+      .add(output_result(input_collection));
   } else if(data.selected_function == 'reduce') {
     master
       .add(position_collection(collection_position_for_reduce()))
       .add(position_accumulator(acumulator_position()))
       .add(position_input_function(function_position_for_reduce()))
       .add(reduce_collection())
-      // .add(output_collection_result());
+      .add(center_accumulator())
+      .add(output_result(input_accumulator));
   }
 });
 
@@ -150,12 +151,12 @@ const reduce_collection = function() {
   return timeline;
 };
 
-const output_collection_result = function() {
+const output_result = function(element) {
   const timeline = new TimelineLite();
 
   timeline
-    .to(input_collection, 1.2, { y: '+=100', scale: 0.6, ease: Sine.easeIn }, 'collection_exits')
-    .to(input_collection, 0.6, { y: '+=10', scale: 1 })
+    .to(element, 1.2, { y: '+=100', scale: 0.6, ease: Sine.easeIn }, 'collection_exits')
+    .to(element, 0.6, { y: '+=10', scale: 1 })
     .to(output_slot, 0.4, { scale: 1.3 }, 'collection_exits+=0.5')
     .to(output_slot, 0.4, { scale: 1 }, 'collection_exits+=1.4')
 
@@ -193,6 +194,14 @@ const acumulator_position = function() {
 
 const function_position_for_reduce = function() {
   return function_position_for_map() + space_between_brick_slots();
+};
+
+const center_accumulator = function() {
+  const timeline = new TimelineLite();
+
+  timeline.to(input_accumulator, 0.6, { x: 0 });
+
+  return timeline;
 };
 
 const main_brick_half_width = function(input_collection, main_brick) {
