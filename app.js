@@ -1,16 +1,26 @@
 let data = {
   accumulator: 0,
   input_collection: [1, 2, 3, 4, 5],
-  map_function: function(element) {
-    return element + 1;
+  hofs: {
+    map: {
+      label: 'add_one',
+      code: function(element) {
+        return element + 1;
+      }
+    },
+    reduce: {
+      label: '+',
+      code: function(accumulator, element) {
+        return accumulator + element;
+      }
+    }
   },
-  reduce_function: function(accumulator, element) {
-    return accumulator + element;
-  },
-  selected_function: 'reduce'
+  selected_function: 'map'
 };
 
 // html elements
+const container = document.getElementsByClassName('container')[0];
+
 const input_collection = document.getElementById('input-collection');
 const collection_elements = input_collection.getElementsByClassName('input-collection-element');
 const collection_element = collection_elements[0];
@@ -27,6 +37,15 @@ const output_slot = document.getElementById('mb-output-slot');
 
 
 const animateButton = document.getElementById('animate');
+const hofPicker = document.getElementById('hof-picker');
+
+hofPicker.addEventListener('change', function(event) {
+  const selected_hof = hofPicker.value;
+
+  data.selected_function = selected_hof;
+  container.classList = "container " + selected_hof;
+  input_function.getElementsByClassName('brick-body')[0].innerText = data.hofs[selected_hof].label;
+});
 
 animateButton.addEventListener('click', function(event) {
   let master = new TimelineLite();
@@ -95,7 +114,7 @@ const map_collection = function() {
 
   for(i = 0; i < total_elements; i++) {
     const element = collection_elements[i];
-    const new_value = data.map_function(data.input_collection[i]);
+    const new_value = data.hofs.map.code(data.input_collection[i]);
 
     timeline
       .to(
@@ -119,7 +138,7 @@ const reduce_collection = function() {
   const total_elements = collection_elements.length;
   const loop_callback = function(i, element) {
     return function() {
-      data.accumulator = data.reduce_function(data.accumulator, data.input_collection[i]);
+      data.accumulator = data.hofs.reduce.code(data.accumulator, data.input_collection[i]);
       input_accumulator.innerText = data.accumulator;
       element.classList += ' invisible';
     };

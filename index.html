@@ -13,7 +13,7 @@
 
   <body>
 
-    <div class="container">
+    <div class="container map">
 
       <div class="navbar-container">
         <h1>Main HOF's !! (Higher Order Functions)</h1>
@@ -22,6 +22,11 @@
       <div class="controls-container">
 
         <div class="start-button-wrapper">
+          <select id="hof-picker">
+            <option value="map">Map</option>
+            <option value="reduce">Reduce</option>
+          </select>
+
           <button type="button" name="animate" id="animate">
             Animate
           </button>
@@ -59,7 +64,7 @@
                   <div class="brick-filled brick-slot reduce-only"></div>
                 </div>
 
-                <div class="brick-filled brick-body">+</div>
+                <div class="brick-filled brick-body">add_one</div>
 
                 <div class="brick-slots brick-output">
                   <div class="brick-filled brick-slot"></div>
