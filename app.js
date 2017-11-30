@@ -22,12 +22,12 @@ let data = {
 const container = document.getElementsByClassName('container')[0];
 
 const input_collection = document.getElementById('input-collection');
-const collection_elements = input_collection.getElementsByClassName('input-collection-element');
-const collection_element = collection_elements[0];
 const input_accumulator = document.getElementById('input-accumulator');
 const input_function = document.getElementById('input-function');
 const input_function_slot = input_function.getElementsByClassName('brick-slot')[0];
 const input_function_slot2 = input_function.getElementsByClassName('brick-slot')[1];
+let collection_elements;
+let collection_element;
 
 const main_brick = document.getElementById('mainbrick');
 const slot_collection = document.getElementById('mb-slot-collection');
@@ -39,16 +39,21 @@ const output_slot = document.getElementById('mb-output-slot');
 const animateButton = document.getElementById('animate');
 const hofPicker = document.getElementById('hof-picker');
 
+let master = new TimelineLite();
+
+
 hofPicker.addEventListener('change', function(event) {
   const selected_hof = hofPicker.value;
 
   data.selected_function = selected_hof;
   container.classList = "container " + selected_hof;
   input_function.getElementsByClassName('brick-body')[0].innerText = data.hofs[selected_hof].label;
+
+  init();
 });
 
 animateButton.addEventListener('click', function(event) {
-  let master = new TimelineLite();
+  master = new TimelineLite();
 
   if(data.selected_function == 'map') {
     master
@@ -65,6 +70,8 @@ animateButton.addEventListener('click', function(event) {
       .add(center_accumulator())
       .add(output_result(input_accumulator));
   }
+
+  master.play();
 });
 
 const position_collection = function(final_x_position) {
@@ -139,7 +146,7 @@ const reduce_collection = function() {
   const loop_callback = function(i, element) {
     return function() {
       data.accumulator = data.hofs.reduce.code(data.accumulator, data.input_collection[i]);
-      input_accumulator.innerText = data.accumulator;
+      input_accumulator.getElementsByClassName('input-collection-element')[0].innerText = data.accumulator;
       element.classList += ' invisible';
     };
   };
@@ -234,3 +241,24 @@ const space_between_brick_slots = function() {
 const diff_between_collection_and_slot_sizes = function() {
   return ((collection_element.offsetWidth - input_function_slot.offsetWidth) / 2);
 };
+
+
+const init = function() {
+  const input_collection_elements = data.input_collection.map(function(element) {
+    return '<div class="input-collection-element">' + element + '</div>';
+  }).join('');
+
+  input_collection.innerHTML = input_collection_elements;
+  collection_elements = input_collection.getElementsByClassName('input-collection-element');
+  collection_element = collection_elements[0];
+
+  data.accumulator = 0;
+
+  input_accumulator.innerHTML =
+    '<div class="input-collection-element">' + data.accumulator + '</div>';
+
+  master.progress(0);
+  master.pause();
+};
+
+document.addEventListener('DOMContentLoaded', init);
