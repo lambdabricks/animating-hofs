@@ -53,6 +53,9 @@ hofPicker.addEventListener('change', function(event) {
 });
 
 animateButton.addEventListener('click', function(event) {
+  init();
+  sleep(500);
+
   master = new TimelineLite();
 
   if(data.selected_function == 'map') {
@@ -260,5 +263,9 @@ const init = function() {
   master.progress(0);
   master.pause();
 };
+
+const sleep = function(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
 document.addEventListener('DOMContentLoaded', init);
