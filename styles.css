@@ -1,6 +1,15 @@
 /* General overwrites */
+body {
+  color: rgb(109, 109, 109);
+}
+
 div {
   margin: 0;
+}
+
+h3 {
+  font-weight: lighter;
+  margin-top: 0;
 }
 
 
@@ -60,9 +69,29 @@ div {
 }
 
 
+/* Form */
+#animate {
+  background-color: #74b1e8;
+  border: none;
+  color: rgb(57, 57, 57);
+  cursor: pointer;
+  font-weight: lighter;
+  padding: 8px 12px;
+}
+
+#hof-picker {
+  background-color: white;
+  border: 1px solid #d7d7d7;
+  border-radius: 0;
+  height: 35px;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+
 /* Main brick */
 .mainbrick-filled {
-  background-color: #bbb;
+  background-color: #d7d7d7;
 }
 
 .mainbrick-body {
@@ -89,6 +118,7 @@ div {
 .brick-filled {
   background-color: #74b1e8;
   box-shadow: 2px 2px 5px rgba(128, 128, 128, 0.7);
+  color: rgb(57, 57, 57);
 }
 
 .brick-output {
