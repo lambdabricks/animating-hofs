@@ -250,3 +250,7 @@ a.link:hover {
 .dark-text {
   color: rgb(30, 30, 30);
 }
+
+.text-center {
+  text-align: center;
+}
