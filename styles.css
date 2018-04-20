@@ -36,7 +36,18 @@ h3 {
 
 .logo > .brick {
   display: inline-block;
+  transform-origin: center center;
+  transition: all 300ms;
   width: 50px;
+}
+
+.logo:hover + .logo-name {
+  transform: scale(1.2) translate(47px, 5px);
+  transition: all 300ms;
+}
+
+.logo > .brick:hover {
+  transform: rotate(360deg) scale(1.8) translate(10px, 10px);
 }
 
 .logo .brick-body {
