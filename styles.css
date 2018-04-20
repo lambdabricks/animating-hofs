@@ -16,7 +16,7 @@ h3 {
 /* Layout */
 .navbar {
   background-color: #6d6d6d;
-  box-shadow: 3px 3px 5px rgba(40, 40, 40, 0.9);
+  box-shadow: 3px 3px 5px rgba(40, 40, 40, 0.8);
   color: rgba(255, 255, 255, 0.9);
   font-size: 19px;
   height: 65px;
@@ -58,7 +58,13 @@ h3 {
 }
 
 .navbar .octicon {
+  color: rgb(255, 255, 255);
   fill: currentColor;
+  opacity: 0.8;
+}
+
+.navbar .octicon:hover {
+  opacity: 1;
 }
 
 .container {
