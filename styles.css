@@ -83,7 +83,7 @@ h3 {
   width: 500px;
 }
 
-.container.map .reduce-only {
+.main-container.map .reduce-only {
   display: none;
 }
 

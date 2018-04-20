@@ -19,7 +19,7 @@ let data = {
 };
 
 // html elements
-const container = document.getElementsByClassName('container')[0];
+const container = document.getElementsByClassName('main-container')[0];
 
 const input_collection = document.getElementById('input-collection');
 const input_accumulator = document.getElementById('input-accumulator');
@@ -46,7 +46,7 @@ hofPicker.addEventListener('change', function(event) {
   const selected_hof = hofPicker.value;
 
   data.selected_function = selected_hof;
-  container.classList = "container " + selected_hof;
+  container.classList = "container main-container " + selected_hof;
   input_function.getElementsByClassName('brick-body')[0].innerText = data.hofs[selected_hof].label;
 
   init();
