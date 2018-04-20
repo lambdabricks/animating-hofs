@@ -14,6 +14,53 @@ h3 {
 
 
 /* Layout */
+.navbar {
+  background-color: #6d6d6d;
+  box-shadow: 3px 3px 5px rgba(40, 40, 40, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 19px;
+  height: 65px;
+  width: 100%;
+}
+
+.navbar > .container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.logo {
+  display: inline-block;
+}
+
+.logo > .brick {
+  display: inline-block;
+  width: 50px;
+}
+
+.logo .brick-body {
+  padding: 3px;
+}
+
+.logo .brick-slot {
+  height: 9px;
+  width: 9px;
+}
+
+.logo-name {
+  font-size: 24px;
+  margin-left: 8px;
+}
+
+.navbar-links {
+  margin-left: auto;
+}
+
+.navbar .octicon {
+  fill: currentColor;
+}
+
 .container {
   margin: 0 auto;
   width: 500px;
