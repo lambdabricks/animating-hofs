@@ -12,8 +12,27 @@ h3 {
   margin-top: 0;
 }
 
+a.link {
+  background-color: rgba(116, 177, 232, 0.65);
+  color: rgba(109, 109, 109, 0.85);
+  display: inline-block;
+  padding: 3px 5px;
+  text-decoration: none;
+  transition: all 300ms;
+}
+
+a.link:hover {
+  background-color: rgba(116, 177, 232, 0.85);
+  color: rgba(80, 80, 80, 0.95);
+  /*text-decoration: none;*/
+}
 
 /* Layout */
+.container {
+  margin: 0 auto;
+  width: 500px;
+}
+
 .navbar {
   background-color: #6d6d6d;
   box-shadow: 3px 3px 5px rgba(40, 40, 40, 0.8);
@@ -78,9 +97,15 @@ h3 {
   opacity: 1;
 }
 
-.container {
-  margin: 0 auto;
-  width: 500px;
+.footer {
+  background-color: #f0f0f0;
+  box-shadow: -3px -3px 5px rgba(40, 40, 40, 0.4);
+  color: #6d6d6d;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
 }
 
 .main-container.map .reduce-only {
@@ -213,8 +238,15 @@ h3 {
   justify-content: space-around;
 }
 
+.animation {
+  height: 315px;
+}
 
 /* Helper classes */
 .invisible {
   visibility: hidden;
+}
+
+.dark-text {
+  color: rgb(30, 30, 30);
 }
