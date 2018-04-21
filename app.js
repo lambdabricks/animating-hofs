@@ -83,7 +83,7 @@ const position_collection = function(final_x_position) {
   timeline
     .to(input_collection, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'collection_enters')
     .to(input_collection, 0.8, { y: 140, scale: 1 })
-    .to(slot_collection, 0.4, { scaleX: 1.3 }, 'collection_enters+=0.25')
+    .to(slot_collection, 0.4, { scaleX: 1.5 }, 'collection_enters+=0.25')
     .to(slot_collection, 0.4, { scaleX: 1 }, 'collection_enters+=1.5')
     .to(input_collection, 0.8, { x: final_x_position })
     .to(input_collection, 0.4, { y: 155 });
@@ -97,7 +97,7 @@ const position_accumulator = function(final_x_position) {
   timeline
     .to(input_accumulator, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'accumulator_enters')
     .to(input_accumulator, 0.8, { y: 140, scale: 1 })
-    .to(slot_accumulator, 0.4, { scaleX: 1.3 }, 'accumulator_enters+=0.25')
+    .to(slot_accumulator, 0.4, { scaleX: 1.5 }, 'accumulator_enters+=0.25')
     .to(slot_accumulator, 0.4, { scaleX: 1 }, 'accumulator_enters+=1.5')
     .to(input_accumulator, 0.8, { x: final_x_position })
     .to(input_accumulator, 0.4, { y: 155 });
@@ -111,7 +111,7 @@ const position_input_function = function(left_offset) {
   timeline
     .to(input_function, 1.2, { y: 105, scale: 0.6, ease: Sine.easeIn }, 'function_enters')
     .to(input_function, 1.2, { y: 190, scale: 1 })
-    .to(slot_function, 0.4, { scaleX: 1.3 }, 'function_enters+=0.25')
+    .to(slot_function, 0.4, { scaleX: 1.5 }, 'function_enters+=0.25')
     .to(slot_function, 0.4, { scaleX: 1 }, 'function_enters+=1.5')
     .to(input_function, 1.2, { x: '-=' + left_offset });
 
@@ -186,7 +186,7 @@ const output_result = function(element) {
   timeline
     .to(element, 1.2, { y: '+=100', scale: 0.6, ease: Sine.easeIn }, 'collection_exits')
     .to(element, 0.6, { y: '+=10', scale: 1 })
-    .to(output_slot, 0.4, { scaleX: 1.3 }, 'collection_exits+=0.5')
+    .to(output_slot, 0.4, { scaleX: 1.5 }, 'collection_exits+=0.5')
     .to(output_slot, 0.4, { scaleX: 1 }, 'collection_exits+=1.4')
 
   return timeline;
