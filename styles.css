@@ -34,8 +34,8 @@ a.link:hover {
 }
 
 .navbar {
-  background-color: #6d6d6d;
-  box-shadow: 3px 3px 5px rgba(40, 40, 40, 0.8);
+  background-color: #4787e4;
+  box-shadow: 0 3px 5px rgba(40, 40, 40, 0.8);
   color: rgba(255, 255, 255, 0.9);
   font-size: 19px;
   height: 65px;
@@ -98,14 +98,17 @@ a.link:hover {
 }
 
 .footer {
-  background-color: #f0f0f0;
-  box-shadow: -3px -3px 5px rgba(40, 40, 40, 0.4);
   color: #6d6d6d;
   font-size: 14px;
   margin-top: 15px;
-  padding: 10px 0;
   text-align: center;
   width: 100%;
+}
+
+.footer-container {
+  border-top: 1px solid #d2d4d7;
+  display: inline-block;
+  padding: 10px 0;
 }
 
 .main-container.map .reduce-only {
